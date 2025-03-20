@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
-import { ChevronDown, X, Menu } from 'lucide-react';
+import { ChevronDown, X } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { HEADER_LIST, SHOP_DATA } from '@/utils/helper';
@@ -10,6 +10,7 @@ const Header = () => {
     const [showBanner, setShowBanner] = useState(true);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [cartCount, setCartCount] = useState(0);
     const pathname = usePathname();
 
     useEffect(() => {
@@ -17,17 +18,30 @@ const Header = () => {
         if (bannerState === 'true') {
             setShowBanner(false);
         }
+
+        const updateCartCount = () => {
+            type CartItem = { quantity: number };
+            const cart: CartItem[] = JSON.parse(localStorage.getItem('cart') || '[]');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            setCartCount(totalItems);
+        };
+
+        updateCartCount();
+        window.addEventListener('storage', updateCartCount);
+
+        return () => window.removeEventListener('storage', updateCartCount);
     }, []);
 
     const handleCloseBanner = () => {
         setShowBanner(false);
+        localStorage.setItem('bannerDismissed', 'true');
     };
 
     return (
         <div>
             {showBanner && (
                 <div className='bg-black'>
-                    <div className=" text-white md:text-center py-2 flex  container px-4 mx-auto">
+                    <div className="text-white md:text-center py-2 flex container px-4 mx-auto">
                         <span className='md:text-sm text-xs text-right font-normal'>
                             Sign up and get 20% off on your first order.{' '}
                             <Link href="#" className="underline font-medium">
@@ -90,8 +104,17 @@ const Header = () => {
                         />
                         <Image src="/assets/images/svg/search.svg" alt="search" width={24} height={24} className='absolute top-3 left-3 cursor-pointer' />
                     </div>
-                    <div className='flex gap-3'> <Image src="/assets/images/svg/searchblack.svg" alt="search" width={24} height={24} className='max-lg:block' />
-                        <Image src="/assets/images/svg/addtocard.svg" alt="cart" width={24} height={24} className='cursor-pointer' /></div>
+                    <div className='flex gap-3'>
+                        <Image src="/assets/images/svg/searchblack.svg" alt="search" width={24} height={24} className='max-lg:block hidden' />
+                        <Link href="/card" className="relative cursor-pointer">
+                            <Image src="/assets/images/svg/addtocard.svg" alt="cart" width={24} height={24} />
+                            {cartCount > 0 && (
+                                <span className="absolute -top-2 -right-2 bg-black text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                                    {cartCount}
+                                </span>
+                            )}
+                        </Link>
+                    </div>
                 </div>
             </header>
         </div>

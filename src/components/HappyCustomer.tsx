@@ -10,7 +10,7 @@ import CommonHeading from './common/CommonHeading';
 
 const HappyCustomer = () => {
     return (
-        <section className="pt-16 pb-20">
+        <section className="pt-16 pb-20 overflow-hidden">
             <div className="container mx-auto px-4">
 
                 <CommonHeading text="OUR HAPPY CUSTOMERS" myClass="!mb-[40px] !text-left" />

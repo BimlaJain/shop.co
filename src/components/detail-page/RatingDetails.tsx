@@ -8,7 +8,7 @@ const TabComponent = () => {
     const router = useRouter();
     const searchParams = useSearchParams();
     const [activeTab, setActiveTab] = useState('rating');
-    const [sortOrder, setSortOrder] = useState<'latest' | 'oldest'>('latest');
+    const [sortOrder, setSortOrder] = useState('latest');
     const [visibleReviews, setVisibleReviews] = useState(3);
 
     const tabs = [
@@ -17,14 +17,46 @@ const TabComponent = () => {
         { label: 'FAQs', value: 'faqs' }
     ];
 
-    const sortedReviews = [...REVIEW_LIST].sort((a, b) => {
-        return sortOrder === 'latest'
-            ? new Date(b.date).getTime() - new Date(a.date).getTime()
-            : new Date(a.date).getTime() - new Date(b.date).getTime();
-    });
+    useEffect(() => {
+        const updateVisibleReviews = () => {
+            setVisibleReviews(window.innerWidth >= 1024 ? 6 : 3);
+        };
+        updateVisibleReviews();
+        window.addEventListener('resize', updateVisibleReviews);
+        return () => window.removeEventListener('resize', updateVisibleReviews);
+    }, []);
+
+    const filterByDate = (reviewDate: string) => {
+        const now = new Date();
+        const reviewTime = new Date(reviewDate);
+        const timeDiff = (now.getTime() - reviewTime.getTime()) / (1000 * 60 * 60 * 24);
+
+        switch (sortOrder) {
+            case '1day':
+                return timeDiff <= 1;
+            case '1week':
+                return timeDiff <= 7;
+            case '1month':
+                return timeDiff <= 30;
+            case 'latest':
+                return true;
+            case 'oldest':
+                return true;
+            default:
+                return true;
+        }
+    };
+
+    const sortedReviews = [...REVIEW_LIST]
+        .filter((review) => filterByDate(review.date))
+        .sort((a, b) => {
+            return sortOrder === 'latest'
+                ? new Date(b.date).getTime() - new Date(a.date).getTime()
+                : new Date(a.date).getTime() - new Date(b.date).getTime();
+        });
 
     const handleLoadMore = () => {
-        setVisibleReviews((prev) => prev + 3);
+        setVisibleReviews((prev) => prev + (window.innerWidth >= 1024 ? 6 : 3));
     };
 
     useEffect(() => {
@@ -32,13 +64,12 @@ const TabComponent = () => {
         setActiveTab(tab);
     }, [searchParams]);
 
-    const handleTabChange = (tab: string) => {
+    const handleTabChange = (tab:any) => {
         router.push(`?tab=${tab}`);
     };
 
     return (
         <div className="container mx-auto py-10 px-4">
-            {/* Tabs Section */}
             <div className="flex justify-between text-center items-center gap-8 border-b border-black/10">
                 {tabs.map((tab) => (
                     <button
@@ -51,25 +82,26 @@ const TabComponent = () => {
                 ))}
             </div>
 
-            {/* Content Section */}
             <div className="py-6">
                 {activeTab === 'rating' ? (
                     <div>
-                        {/* Header Section */}
                         <div className="flex justify-between mt-[19px] mb-[29px]">
                             <h2 className="text-2xl font-bold">
-                                All Reviews <span className="font-normal text-base text-[#00000099]"> ({REVIEW_LIST.length})</span>
+                                All Reviews <span className="font-normal text-base text-[#00000099]"> ({sortedReviews.length})</span>
                             </h2>
-                            <div
-                                className="flex bg-[#F0F0F0] gap-[21px] py-[13px] px-5 rounded-[62px] cursor-pointer"
-                                onClick={() => setSortOrder(sortOrder === 'latest' ? 'oldest' : 'latest')}
+                            <select
+                                className="py-3 px-4 rounded-full bg-[#F0F0F0] cursor-pointer"
+                                onChange={(e) => setSortOrder(e.target.value)}
+                                value={sortOrder}
                             >
-                                <button className="font-medium text-base">{sortOrder === 'latest' ? 'Latest' : 'Oldest'}</button>
-                                <Image src="/assets/images/svg/down-arrow.svg" alt="arrow" width={16} height={16} />
-                            </div>
+                                <option value="latest">Latest</option>
+                                <option value="oldest">Oldest</option>
+                                <option value="1day">1 Day Ago</option>
+                                <option value="1week">1 Week Ago</option>
+                                <option value="1month">1 Month Ago</option>
+                            </select>
                         </div>
 
-                        {/* Reviews Section */}
                         <div className="grid md:grid-cols-2 gap-5 mt-4">
                             {sortedReviews.slice(0, visibleReviews).map((review) => (
                                 <div key={review.id} className="border border-[#0000001A] py-7 px-8 rounded-[20px] bg-white">
@@ -89,7 +121,6 @@ const TabComponent = () => {
                             ))}
                         </div>
 
-                        {/* Load More Button */}
                         {visibleReviews < sortedReviews.length && (
                             <button
                                 onClick={handleLoadMore}

@@ -71,7 +71,9 @@ const CommonProductSlider: React.FC<CommonProductSliderProps> = ({ title, data }
                         </SwiperSlide>
                     ))}
                 </Swiper>
-                <CommonButton text="View All" myClass="px-[80px] !justify-center py-[13px] max-sm:!w-full !text-black !bg-white !border-black/10 !flex !mx-auto mt-7 md:mt-[36px] hover:!bg-black hover:!text-white" />
+                {(title === 'New Arrivals' || title === 'Best Sellers') && (
+                    <CommonButton text="View All" myClass="px-[80px] !justify-center py-[13px] max-sm:!w-full !text-black !bg-white !border-black/10 !flex !mx-auto mt-7 md:mt-[36px] hover:!bg-black hover:!text-white" />
+                )}
             </div>
         </section>
     );
