@@ -76,7 +76,7 @@ const Header = () => {
                         {isDropdownOpen && (
                             <ul className="absolute top-8 left-0 w-40 bg-black shadow-lg border rounded-md">
                                 {SHOP_DATA.map((item: string, index: number) => (
-                                    <li key={index} className="p-2 hover:bg-gray-800 text-white cursor-pointer">
+                                    <li key={index} onClick={() => setIsDropdownOpen(false)} className="p-2 hover:bg-gray-800 text-white cursor-pointer">
                                         {item}
                                     </li>
                                 ))}
