@@ -49,7 +49,8 @@ const CartPage: React.FC = () => {
     return (
         <>
             <Header />
-            <div className="container mx-auto pt-10 pb-24 px-4">
+            <div className="container mx-auto pt-10 md:pb-24 pb-10 px-4">
+                <h3 className='font-normal text-base text-black/60 pb-3 text-left'>Home <span className='text-black'>&gt; Card</span> </h3>
               <CommonHeading text="Your Cart" myClass="!mb-[40px] !text-left !text-[40px]" />
                 <div className="flex max-lg:flex-col gap-10">
                     <div className="lg:w-7/12 w-full border border-black/10 px-6 rounded-[20px]">

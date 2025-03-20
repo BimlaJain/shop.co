@@ -10,11 +10,11 @@ const DressStyle = () => {
             <div className="container mx-auto bg-gray-100 md:px-[64px] px-6 md:py-[73px] pt-10 pb-7 md:rounded-[40px] rounded-[20px]">
                 <CommonHeading text="BROWSE BY DRESS STYLE" myClass="md:!mb-[64px] !mb-7" />
                 
-                    <div className="flex flex-col sm:flex-row justify-center gap-5">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
                     <Image src="/assets/images/png/casual.png" alt="casual" width={407} height={289} className='max-sm:w-[310px] max-sm:h-[190px]' />
                     <Image src="/assets/images/png/formal.png" alt="casual" width={684} height={289} className='max-sm:w-[310px] max-sm:h-[190px]' />
                 </div>
-                <div className="flex justify-center flex-col sm:flex-row gap-5 mt-5">
+                <div className="flex justify-center flex-col items-center sm:flex-row gap-5 mt-5">
                     <Image src="/assets/images/png/party-girl.png" alt="casual" width={684} height={289} className='max-sm:w-[310px] max-sm:h-[190px]' />
                     <Image src="/assets/images/png/gym.png" alt="casual" width={407} height={289} className='max-sm:w-[310px] max-sm:h-[190px]' />
                 </div>

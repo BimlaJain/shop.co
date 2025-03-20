@@ -69,7 +69,7 @@ const TabComponent = () => {
     };
 
     return (
-        <div className="container mx-auto py-10 px-4">
+        <div className="container mx-auto pt-10 px-4">
             <div className="flex justify-between text-center items-center gap-8 border-b border-black/10">
                 {tabs.map((tab) => (
                     <button
@@ -82,7 +82,7 @@ const TabComponent = () => {
                 ))}
             </div>
 
-            <div className="py-6">
+            <div className="pt-6">
                 {activeTab === 'rating' ? (
                     <div>
                         <div className="flex justify-between mt-[19px] mb-[29px]">

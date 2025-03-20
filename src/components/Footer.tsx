@@ -5,7 +5,7 @@ import { NAV_SECTIONS_LIST, PAYMENT_METHODS, SOCIAL_LINKS } from "../utils/helpe
 const Footer = () => {
     const year = new Date().getFullYear();
     return (
-        <div className="bg-[#F0F0F0] lg:pt-[140px] pt-[218px] md:pb-[81px] pb-[77px]">
+        <div className="bg-[#F0F0F0] lg:pt-[140px] pt-28 md:pb-[81px] pb-[77px]">
             <div className="container max-w-[1240px] mx-auto px-4">
                 <div className="flex flex-wrap justify-between md:gap-10 gap-6 pb-[50px]">
                     <div className="max-w-[248px]">
@@ -45,7 +45,7 @@ const Footer = () => {
                     <p className=" mt-1 text-sm">
                         Shop.co © 2000-{year}, All Rights Reserved
                     </p>
-                    <div className="flex md:gap-2 max-md:mt-6">
+                    <div className="flex gap-2 max-md:mt-6">
                         {PAYMENT_METHODS.map((method, index) => (
                             <Link key={index} href={method.link} className="w-full cursor-pointer hover:shadow-lg">
                                 <Image src={method.icon} alt={method.name} width={46} height={30} />

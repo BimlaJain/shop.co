@@ -61,8 +61,8 @@ const LatestOffer = () => {
     };
 
     return (
-        <div className='relative pt-20'>
-            <div className="container bg-black rounded-[36px] lg:max-w-[992px] xl:max-w-[1280px] md:max-w-[694px] max-w-[600px] max-sm:max-w-[358px] mx-auto absolute top-[-2%] xl:left-[5%] lg:left-[2%] md:left-[5%] left-[2%]">
+        <div className='relative'>
+            <div className="container bg-black rounded-[36px] lg:max-w-[992px] xl:max-w-[1280px] md:max-w-[694px] max-w-[600px] max-sm:max-w-[358px] mx-auto -mb-20 relative z-10 top-[-2%]">
                 <div className="flex justify-between max-lg:flex-wrap items-center py-9 xl:px-16 md:px-12 px-6 ">
                     <h3 className='font-bold xl:text-[40px] lg:text-4xl text-[32px] max-lg:pb-9 leading-[109%]  ff-integral text-white max-w-[551px]'>
                         STAY UPTO DATE ABOUT OUR LATEST OFFERS

@@ -102,13 +102,14 @@ const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
     <>
       <Header />
       <div className="container mx-auto py-10 px-4">
+        <h3 className='font-normal text-base text-black/60 pb-10 xl:text-left md:text-center text-left'>Home &gt; Shop &gt; Men  <span className='text-black'>&gt; T-shirts</span> </h3>
         {alertMessage && (
           <div className="fixed top-5 right-5 bg-red-500 text-white px-6 py-4 rounded-lg z-50">
             {alertMessage}
             <button className="ml-4 font-bold" onClick={closeAlert}>✕</button>
           </div>
         )}
-        <div className="flex justify-center items-center w-full max-xl:flex-col gap-10">
+        <div className="flex items-center w-full max-xl:flex-col gap-10">
           <div className="flex max-lg:flex-col-reverse gap-4">
             <div className="flex lg:flex-col gap-4">
               {modifiedImages.map((img, i) => (
@@ -128,7 +129,7 @@ const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
               alt={modifiedImages[selectedImageIndex].alt}
               width={444}
               height={530}
-              className="rounded-xl"
+              className="rounded-xl max-sm:max-w-[358px] max-sm:h-[290px]"
             />
           </div>
           <div>
