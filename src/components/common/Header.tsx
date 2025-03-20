@@ -21,15 +21,13 @@ const Header = () => {
     };
 
     useEffect(() => {
-        // Check if banner was dismissed
         const bannerState = localStorage.getItem('bannerDismissed');
-        if (bannerState === 'true') {
+        if (bannerState === 'false') {
             setShowBanner(false);
         }
 
         updateCartCount();
 
-        // Listen for custom event for cart updates
         const handleCartUpdate = () => updateCartCount();
         window.addEventListener('cartUpdate', handleCartUpdate);
 
@@ -40,7 +38,7 @@ const Header = () => {
 
     const handleCloseBanner = () => {
         setShowBanner(false);
-        localStorage.setItem('bannerDismissed', 'true');
+       
     };
 
     return (
@@ -54,7 +52,7 @@ const Header = () => {
                                 Sign Up Now
                             </Link>
                         </span>
-                        <button onClick={handleCloseBanner} className="absolute right-4 top-2">
+                        <button onClick={handleCloseBanner} className="absolute right-4 top-2 cursor-pointer">
                             <X size={20} />
                         </button>
                     </div>
