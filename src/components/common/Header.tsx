@@ -93,10 +93,10 @@ const Header = () => {
                         <Link
                             key={index}
                             href={link.link}
-                            className={`relative group ${pathname === link.link ? 'underline font-bold' : ''}`}
+                            className={`relative group transition-all duration-500 ${pathname === link.link ? 'underline font-bold transition-all duration-500' : ''}`}
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            <span className="group-hover:underline">{link.title}</span>
+                            <span className="group-hover:underline transition-all duration-500">{link.title}</span>
                         </Link>
                     ))}
                 </nav>

@@ -47,7 +47,7 @@ const Footer = () => {
                     </p>
                     <div className="flex md:gap-2 max-md:mt-6">
                         {PAYMENT_METHODS.map((method, index) => (
-                            <Link key={index} href={method.link} className="w-full cursor-pointer">
+                            <Link key={index} href={method.link} className="w-full cursor-pointer hover:shadow-lg">
                                 <Image src={method.icon} alt={method.name} width={46} height={30} />
                             </Link>
                         ))}

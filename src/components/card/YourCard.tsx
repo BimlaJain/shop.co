@@ -101,10 +101,10 @@ const CartPage: React.FC = () => {
                                 <Image src="/assets/images/svg/promocode.svg" alt="promo" width={24} height={24} />
                                 <input type="text" placeholder="Add promo code" className="w-full rounded-full md:text-base text-sm" />
                             </div>
-                            <button className="px-[38px] bg-black text-white py-3 mt-3 rounded-full">Apply</button>
+                            <button className="px-[38px] bg-black text-white py-3 mt-3 rounded-full cursor-pointer hover:bg-white hover:text-black border bprder-black transition-all duration-500">Apply</button>
                         </div>
 
-                        <button className="w-full bg-black text-white py-3 rounded-full">Go to Checkout →</button>
+                        <button className="w-full bg-black text-white py-3 rounded-full cursor-pointer hover:bg-white hover:text-black border bprder-black transition-all duration-500">Go to Checkout →</button>
                     </div>
                 </div>
             </div>
