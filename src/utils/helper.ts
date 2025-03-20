@@ -85,9 +85,9 @@ export const NAV_SECTIONS_LIST = [
 
 export const MIGHT_BE_LIKE_DATA = [
     { id: 1, image: '/assets/images/png/polo-t-shirt.png', title: 'Polo with Contrast Trims', rating: 4.0, price: 212, originalPrice: 242, discount: '20%' },
-    { id: 2, image: '/assets/images/png/gradient-t-short.png', title: 'Gradient Graphic T-shirt', rating: 3.5, price: 145 },
+    { id: 2, image: '/assets/images/png/gradient-t-short.png', title: 'Gradient Graphic T shirt', rating: 3.5, price: 145 },
     { id: 3, image: '/assets/images/png/polo-tripping-t-shirt.png', title: 'Polo with Tipping Details', rating: 4.5, price: 180 },
-    { id: 4, image: '/assets/images/png/black-stripped-t-shirt.png', title: 'Black Striped T-shirt', rating: 5.0, price: 120, originalPrice: 150, discount: '30%' }
+    { id: 4, image: '/assets/images/png/black-stripped-t-shirt.png', title: 'Black Striped T shirt', rating: 5.0, price: 120, originalPrice: 150, discount: '30%' }
 ];
 
 export const SORTED_IMAGES_DATA = [

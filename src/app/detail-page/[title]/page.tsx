@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
-import { ARRIVAL_DATA, SELLING_DATA, SORTED_IMAGES_DATA } from '../../../utils/helper';
+import { ARRIVAL_DATA, SELLING_DATA, MIGHT_BE_LIKE_DATA, SORTED_IMAGES_DATA } from '../../../utils/helper';
 import Header from '@/components/common/Header';
 import YouMightBeLike from '@/components/detail-page/YouMightBeLIke';
 import LatestOffer from '@/components/LatestOffer';
@@ -38,16 +38,20 @@ const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
 
   useEffect(() => {
     if (!unwrappedParams) return;
+
     const slug = decodeURIComponent(unwrappedParams.title);
     const formattedSlug = slug.replace(/-/g, ' ').toLowerCase();
-    const allData = [...ARRIVAL_DATA, ...SELLING_DATA];
+
+    const allData = [...ARRIVAL_DATA, ...SELLING_DATA, ...MIGHT_BE_LIKE_DATA];
     const foundItem = allData.find((p: Product) => p.title.toLowerCase() === formattedSlug);
+
     if (foundItem) {
       setItem(foundItem);
       setSelectedColor((foundItem as Product).colors?.[0] ?? '');
+    } else {
+      setItem(null);
     }
   }, [unwrappedParams]);
-
   const handleAddToCart = () => {
     if (!selectedColor) {
       setAlertMessage('Please select a color.');

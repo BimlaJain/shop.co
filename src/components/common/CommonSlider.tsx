@@ -28,8 +28,10 @@ const CommonProductSlider: React.FC<CommonProductSliderProps> = ({ title, data }
     const router = useRouter();
 
     const handleClick = (item: Product) => {
-        router.push(`/detail-page/${item.title.replace(/ /g, '-').toLowerCase()}`);
+        const slug = encodeURIComponent(item.title.replace(/\s+/g, '-').toLowerCase());
+        router.push(`/detail-page/${slug}`);
     };
+
 
     return (
         <section className="md:pt-[72px] pt-[50px]">
