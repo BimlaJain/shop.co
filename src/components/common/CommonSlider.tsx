@@ -29,7 +29,7 @@ const CommonProductSlider: React.FC<CommonProductSliderProps> = ({ title, data }
 
     const handleClick = (item: Product) => {
         const slug = encodeURIComponent(item.title.replace(/\s+/g, '-').toLowerCase());
-        router.push(`/detail-page/${slug}`);
+        router.push(`/product/${slug}`);
     };
 
 

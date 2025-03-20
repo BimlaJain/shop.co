@@ -79,7 +79,7 @@ const CartPage: React.FC = () => {
                                         <button onClick={() => handleRemove(index)} className="text-red-500 mb-14 cursor-pointer">
                                             <Image src="/assets/images/svg/deletebutton.svg" alt="trash" width={24} height={24} />
                                         </button>
-                                        <div className='bg-[#F0F0F0] rounded-full gap-5 md:h-[44px] h-[31px] max-sm:w-[105px] flex items-center'>
+                                        <div className='bg-[#F0F0F0] rounded-full gap-5 md:h-[44px] h-[31px] max-sm:w-[105px] flex items-center max-sm:mt-5'>
                                             <button onClick={() => handleQuantityChange(index, -1)} className="pl-5 py-3 text-2xl font-bold cursor-pointer">-</button>
                                             <span>{item.quantity}</span>
                                             <button onClick={() => handleQuantityChange(index, 1)} className="pr-5 py-3 text-2xl font-bold cursor-pointer">+</button>
