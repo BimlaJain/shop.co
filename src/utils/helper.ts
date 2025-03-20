@@ -180,3 +180,18 @@ export const REVIEW_LIST = [
             "This t-shirt is a must-have for anyone who appreciates good design. The minimalistic yet stylish pattern caught my eye, and the fit is perfect. I can see the designer’s touch in every aspect of this shirt.",
     },
 ];
+
+export const SOCIAL_LINKS = [
+    { href: 'https://x.com/?lang=en', icon: '/assets/images/svg/twitter.svg', alt: 'twitter', width: 11.17, height: 9.03 },
+    { href: 'https://www.facebook.com/', icon: '/assets/images/svg/facebook.svg', alt: 'facebook', width: 6.32, height: 12.17 },
+    { href: 'https://www.instagram.com/', icon: '/assets/images/svg/instagram.svg', alt: 'instagram', width: 13.54, height: 13.54 },
+    { href: 'https://github.com/', icon: '/assets/images/svg/github.svg', alt: 'github', width: 12.95, height: 12.65 }
+];
+
+export const PAYMENT_METHODS = [
+    { name: 'Visa', icon: '/assets/images/svg/visa.svg', link: 'https://www.mastercard.co.in/en-in.html' },
+    { name: 'Mastercard', icon: '/assets/images/svg/circle.svg', link: 'https://www.visa.co.in/pay-with-visa/find-a-card/credit-cards.html' },
+    { name: 'PayPal', icon: '/assets/images/svg/paypal.svg', link: 'https://www.paypal.com/in/home' },
+    { name: 'Apple Pay', icon: '/assets/images/svg/pay.svg', link: 'https://www.apple.com/apple-pay/' },
+    { name: 'Google Pay', icon: '/assets/images/svg/google-pay.svg', link: 'https://payments.google.com/gp/w/home/signup' }
+];
