@@ -1,8 +1,7 @@
-"use client"
+"use client";
 import React, { useState } from 'react';
 import Image from 'next/image';
 import emailjs from '@emailjs/browser';
-
 import Footer from './Footer';
 
 const LatestOffer = () => {
@@ -19,6 +18,15 @@ const LatestOffer = () => {
         setEmail(inputEmail);
         if (inputEmail && isValidEmail(inputEmail)) {
             setMessage('');
+        }
+    };
+
+    const handleInvalid = (e: React.FormEvent<HTMLInputElement>) => {
+        e.preventDefault();
+        if (!email) {
+            setMessage('Please enter your email address.');
+        } else if (!isValidEmail(email)) {
+            setMessage('Please enter a valid email address.');
         }
     };
 
@@ -39,12 +47,8 @@ const LatestOffer = () => {
             email: email,
         };
 
-        emailjs.send(
-            'service_krvtb88',
-            'template_nd92fqi',
-            templateParams,
-            'ACFWkn8tsi2tt71D6'
-        )
+        emailjs
+            .send('service_krvtb88', 'template_nd92fqi', templateParams, 'ACFWkn8tsi2tt71D6')
             .then((response) => {
                 console.log('Email successfully sent!', response);
                 setMessage('Thank you for subscribing to our newsletter!');
@@ -89,6 +93,6 @@ const LatestOffer = () => {
             <Footer />
         </div>
     );
-}
+};
 
 export default LatestOffer;

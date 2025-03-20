@@ -90,7 +90,7 @@ const TabComponent = () => {
                                 All Reviews <span className="font-normal text-base text-[#00000099]"> ({sortedReviews.length})</span>
                             </h2>
                             <select
-                                className="py-3 px-4 rounded-full bg-[#F0F0F0] cursor-pointer"
+                                className="py-3 px-4 outline-none rounded-full bg-[#F0F0F0] cursor-pointer"
                                 onChange={(e) => setSortOrder(e.target.value)}
                                 value={sortOrder}
                             >

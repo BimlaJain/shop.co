@@ -13,23 +13,29 @@ const Header = () => {
     const [cartCount, setCartCount] = useState(0);
     const pathname = usePathname();
 
+    const updateCartCount = () => {
+        type CartItem = { quantity: number };
+        const cart: CartItem[] = JSON.parse(localStorage.getItem('cart') || '[]');
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        setCartCount(totalItems);
+    };
+
     useEffect(() => {
+        // Check if banner was dismissed
         const bannerState = localStorage.getItem('bannerDismissed');
         if (bannerState === 'true') {
             setShowBanner(false);
         }
 
-        const updateCartCount = () => {
-            type CartItem = { quantity: number };
-            const cart: CartItem[] = JSON.parse(localStorage.getItem('cart') || '[]');
-            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            setCartCount(totalItems);
-        };
-
         updateCartCount();
-        window.addEventListener('storage', updateCartCount);
 
-        return () => window.removeEventListener('storage', updateCartCount);
+        // Listen for custom event for cart updates
+        const handleCartUpdate = () => updateCartCount();
+        window.addEventListener('cartUpdate', handleCartUpdate);
+
+        return () => {
+            window.removeEventListener('cartUpdate', handleCartUpdate);
+        };
     }, []);
 
     const handleCloseBanner = () => {
@@ -57,7 +63,7 @@ const Header = () => {
 
             <header className="flex justify-between items-center p-4 container mx-auto">
                 <div className="flex items-center gap-4">
-                    <button className="lg:hidden transition-all duration-500 ease-linear" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                    <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                         <Image src="/assets/images/svg/menuicon.svg" alt="menu" width={24} height={24} />
                     </button>
                     <Link href="/">
@@ -65,8 +71,8 @@ const Header = () => {
                     </Link>
                 </div>
 
-                <nav className={`flex gap-6 lg:flex transition-all duration-500 ease-linear ${isMobileMenuOpen ? 'fixed top-0 left-0 w-full min-h-screen bg-white flex-col justify-center items-center z-50 translate-x-0' : 'hidden -translate-x-full lg:translate-x-0'} `}>
-                    <button className="absolute top-8 left-4 lg:hidden transition-all duration-500 ease-linear" onClick={() => setIsMobileMenuOpen(false)}>
+                <nav className={`flex gap-6 lg:flex ${isMobileMenuOpen ? 'fixed top-0 left-0 w-full min-h-screen bg-white flex-col justify-center items-center z-50 ' : 'hidden lg:flex'} `}>
+                    <button className="absolute top-8 left-4 lg:hidden" onClick={() => setIsMobileMenuOpen(false)}>
                         <X size={24} />
                     </button>
                     <div className="relative">
@@ -90,7 +96,7 @@ const Header = () => {
                             className={`relative group ${pathname === link.link ? 'underline font-bold' : ''}`}
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            <span className="group-hover:underline group-active:underline">{link.title}</span>
+                            <span className="group-hover:underline">{link.title}</span>
                         </Link>
                     ))}
                 </nav>
