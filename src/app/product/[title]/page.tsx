@@ -129,7 +129,7 @@ const ProductDetail = ({ params }: { params: Promise<{ title: string }> }) => {
               alt={modifiedImages[selectedImageIndex].alt}
               width={444}
               height={530}
-              className="rounded-xl max-sm:max-w-[358px] max-sm:h-[290px]"
+              className="rounded-[20px] max-sm:max-w-[358px] max-sm:h-[290px]"
             />
           </div>
           <div>

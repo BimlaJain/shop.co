@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const BrandName = () => {
   return (
-      <div className='bg-black'>
+      <div id='brands' className='bg-black'>
           <div className="container px-4 mx-auto">
               <div className="flex flex-wrap xl:gap-[106px] lg:gap-16 gap-[25px] justify-center py-11">
                   <Image src="/assets/images/png/versace.png" alt="Brand Logo" width={166} height={33} className='xl:w-[166px] xl:h-[33px] w-[116px] h-[23px]' />

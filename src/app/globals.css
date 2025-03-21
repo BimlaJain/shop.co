@@ -18,6 +18,10 @@
   font-family: 'integral';
 }
 
+html body{
+  scroll-behavior: smooth !important;
+}
+
 .swiper-pagination-bullet-active{
   background-color: black !important;
 }
