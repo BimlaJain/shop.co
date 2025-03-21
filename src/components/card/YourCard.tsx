@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import LatestOffer from '../LatestOffer';
 import Header from '../common/Header';
 import CommonHeading from '../common/CommonHeading';
-
+import Swal from 'sweetalert2';
 interface CartItem {
     name: string;
     price: number;
@@ -41,6 +41,19 @@ const CartPage: React.FC = () => {
         updateCart(updatedCart);
     };
 
+    const handleCheckout = () => {
+        Swal.fire({
+            title: 'Order Placed!',
+            text: 'Your order is on the way.',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            setCart([]);
+            localStorage.removeItem('cart');
+            window.dispatchEvent(new Event('cartUpdate'));
+        });
+    };
+
     const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     const discount = subtotal * 0.2;
     const deliveryFee = 15;
@@ -51,7 +64,7 @@ const CartPage: React.FC = () => {
             <Header />
             <div className="container mx-auto pt-10 md:pb-24 pb-10 px-4">
                 <h3 className='font-normal text-base text-black/60 pb-3 text-left'>Home <span className='text-black'>&gt; Card</span> </h3>
-              <CommonHeading text="Your Cart" myClass="!mb-[40px] !text-left !text-[40px]" />
+                <CommonHeading text="Your Cart" myClass="!mb-[40px] !text-left !text-[40px]" />
                 <div className="flex max-lg:flex-col gap-10">
                     <div className="lg:w-7/12 w-full border border-black/10 px-6 rounded-[20px]">
                         {cart.length === 0 ? (
@@ -67,7 +80,6 @@ const CartPage: React.FC = () => {
                                             height={100}
                                             className="rounded-md"
                                         />
-
                                         <div>
                                             <h2 className="md:text-xl text-base font-bold whitespace-nowrap max-sm:mt-7">{item.name}</h2>
                                             <p className='text-xs md:text-base'>Size: {item.size}</p>
@@ -97,15 +109,7 @@ const CartPage: React.FC = () => {
                         <hr className="my-4 border-black/10" />
                         <p className="text-xl font-bold flex justify-between mb-6">Total <span>${total.toFixed(2)}</span></p>
 
-                        <div className="mb-6 flex gap-3 items-center justify-center">
-                            <div className='flex bg-[#F0F0F0] gap-3 rounded-full py-3 md:px-4 px-2 items-center w-full mt-3'>
-                                <Image src="/assets/images/svg/promocode.svg" alt="promo" width={24} height={24} />
-                                <input type="text" placeholder="Add promo code" className="w-full rounded-full md:text-base text-sm" />
-                            </div>
-                            <button className="px-[38px] bg-black text-white py-3 mt-3 rounded-full cursor-pointer hover:bg-white hover:text-black border bprder-black transition-all duration-500">Apply</button>
-                        </div>
-
-                        <button className="w-full bg-black text-white py-3 rounded-full cursor-pointer hover:bg-white hover:text-black border bprder-black transition-all duration-500">Go to Checkout →</button>
+                        <button onClick={handleCheckout} className="w-full bg-black text-white py-3 rounded-full cursor-pointer hover:bg-white hover:text-black border border-black transition-all duration-500">Go to Checkout →</button>
                     </div>
                 </div>
             </div>

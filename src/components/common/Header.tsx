@@ -78,7 +78,7 @@ const Header = () => {
                             Shop <ChevronDown size={16} />
                         </button>
                         {isDropdownOpen && (
-                            <ul className="absolute top-8 left-0 w-40 bg-black shadow-lg border rounded-md">
+                            <ul className="absolute top-8 left-0 w-40 bg-black shadow-lg border rounded-md z-10">
                                 {SHOP_DATA.map((item: string, index: number) => (
                                     <li key={index} onClick={() => setIsDropdownOpen(false)} className="p-2 hover:bg-gray-800 text-white cursor-pointer">
                                         {item}

@@ -52,9 +52,9 @@ const CommonProductSlider: React.FC<CommonProductSliderProps> = ({ title, data }
                     className="pb-10"
                 >
                     {data.map((item) => (
-                        <SwiperSlide key={item.id} onClick={() => handleClick(item)} className='pb-16 xl:pb-2 cursor-pointer'>
+                        <SwiperSlide key={item.id} onClick={() => handleClick(item)} className='pb-16 xl:pb-2 cursor-pointer group'>
                             <div className="rounded-[20px] md:w-[295px] w-[198px]">
-                                <Image src={item.image} alt={item.title} width={295} height={298} className="mx-auto rounded-[20px] md:h-[298px] h-[200px]" />
+                                <Image src={item.image} alt={item.title} width={295} height={298} className="mx-auto group-hover:shadow-lg transition-all duration-300 rounded-[20px] md:h-[298px] h-[200px]" />
                                 <h3 className="mt-4 md:text-xl text-base font-semibold">{item.title}</h3>
                                 <div className="flex items-center mt-2">
                                     <Image src="/assets/images/svg/5star.svg" alt="Star" width={104} height={19} />
