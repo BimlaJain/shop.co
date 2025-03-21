@@ -89,17 +89,20 @@ const TabComponent = () => {
                             <h2 className="text-2xl font-bold">
                                 All Reviews <span className="font-normal text-base text-[#00000099]"> ({sortedReviews.length})</span>
                             </h2>
-                            <select
-                                className="py-3 px-4 outline-none rounded-full bg-[#F0F0F0] cursor-pointer"
-                                onChange={(e) => setSortOrder(e.target.value)}
-                                value={sortOrder}
-                            >
-                                <option value="latest">Latest</option>
-                                <option value="oldest">Oldest</option>
-                                <option value="1day">1 Day Ago</option>
-                                <option value="1week">1 Week Ago</option>
-                                <option value="1month">1 Month Ago</option>
-                            </select>
+                            <div className='py-3 px-4 rounded-full bg-[#F0F0F0] cursor-pointer'>
+                                <select
+                                    className=" outline-none "
+                                    onChange={(e) => setSortOrder(e.target.value)}
+                                    value={sortOrder}
+                                >
+                                    <option value="latest">Latest</option>
+                                    <option value="oldest">Oldest</option>
+                                    <option value="1day">1 Day Ago</option>
+                                    <option value="1week">1 Week Ago</option>
+                                    <option value="1month">1 Month Ago</option>
+                                </select>
+                            </div>
+
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-5 mt-4">
