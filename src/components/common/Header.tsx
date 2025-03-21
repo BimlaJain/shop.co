@@ -98,7 +98,6 @@ const Header = () => {
                         </Link>
                     ))}
                 </nav>
-
                 <div className="flex items-center gap-5">
                     <div className="relative w-full xl:w-[577px] hidden lg:block">
                         <input
