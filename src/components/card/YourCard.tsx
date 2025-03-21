@@ -101,7 +101,7 @@ const CartPage: React.FC = () => {
                             ))
                         )}
                     </div>
-                    <div className="lg:w-5/12 max-lg:w-full px-6 py-5 border border-black/10 rounded-[20px] h-[458px]">
+                    <div className="lg:w-5/12 max-lg:w-full px-6 py-5 border border-black/10 rounded-[20px] lg:h-[458px]">
                         <h2 className="text-2xl font-bold mb-6">Order Summary</h2>
                         <p className='flex justify-between mb-5'>Subtotal <span className="font-bold">${subtotal}</span></p>
                         <p className='flex justify-between mb-5'>Discount (-20%)<span className="text-red-500">-${discount.toFixed(2)}</span></p>
