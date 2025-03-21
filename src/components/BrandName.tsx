@@ -4,7 +4,7 @@ import Image from 'next/image'
 const BrandName = () => {
   return (
       <div id='brands' className='bg-black'>
-          <div className="container px-4 mx-auto">
+      <div className="container 2xl:max-w-[1280px] px-4 mx-auto">
               <div className="flex flex-wrap xl:gap-[106px] lg:gap-16 gap-[25px] justify-center py-11">
                   <Image src="/assets/images/png/versace.png" alt="Brand Logo" width={166} height={33} className='xl:w-[166px] xl:h-[33px] w-[116px] h-[23px]' />
                   <Image src="/assets/images/png/zara.png" alt="Brand Logo" width={91} height={38} className='xl:w-[91px] xl:h-[38px] w-[63px] h-[26px]'/>

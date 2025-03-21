@@ -33,7 +33,7 @@ const HeroSection = () => {
 
     return (
         <section className="bg-[#F2F0F1]">
-            <div className="container mx-auto px-4 flex flex-col lg:flex-row lg:items-center relative">
+            <div className="container 2xl:max-w-[1280px] mx-auto px-4 flex flex-col lg:flex-row lg:items-center relative">
                 <div className="text-center lg:text-left xl:w-1/2  lg:pb-[116px] lg:pt-16 pt-10">
                     <h1 className="xl:text-[64px] lg:text-6xl md:text-[46px] text-4xl font-bold mb-4 text-left ff-integral leading-[100%] w-full">FIND CLOTHES THAT MATCH YOUR STYLE</h1>
                     <p className="text-black/60 text-left lg:max-w-[545px] md:mb-8 mb-6 md:text-base text-[13px] font-normal w-full">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style.</p>

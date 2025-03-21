@@ -7,7 +7,7 @@ import CommonHeading from './common/CommonHeading';
 const DressStyle = () => {
     return (
         <section className=" px-4">
-            <div className="container mx-auto bg-gray-100 md:px-[64px] px-6 md:py-[73px] pt-10 pb-7 md:rounded-[40px] rounded-[20px]">
+            <div className="container 2xl:max-w-[1280px] mx-auto bg-gray-100 md:px-[64px] px-6 md:py-[73px] pt-10 pb-7 md:rounded-[40px] rounded-[20px]">
                 <CommonHeading text="BROWSE BY DRESS STYLE" myClass="md:!mb-[64px] !mb-7" />
                 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-5">

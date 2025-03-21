@@ -69,7 +69,7 @@ const TabComponent = () => {
     };
 
     return (
-        <div className="container mx-auto pt-10 px-4">
+        <div className="container 2xl:max-w-[1280px] mx-auto pt-10 px-4">
             <div className="flex justify-between text-center items-center gap-8 border-b border-black/10">
                 {tabs.map((tab) => (
                     <button

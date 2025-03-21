@@ -62,7 +62,7 @@ const LatestOffer = () => {
 
     return (
         <div className='relative'>
-            <div className="container bg-black rounded-[36px] lg:max-w-[992px] xl:max-w-[1280px] md:max-w-[694px] max-w-[600px] max-sm:max-w-[358px] mx-auto -mb-20 relative z-10 top-[-2%]">
+            <div className="container  bg-black  rounded-[36px] lg:max-w-[992px] xl:max-w-[1280px] md:max-w-[694px] max-w-[600px] max-sm:max-w-[358px] mx-auto -mb-20 relative z-10 top-[-2%]">
                 <div className="flex justify-between max-lg:flex-wrap items-center py-9 xl:px-16 md:px-12 px-6 ">
                     <h3 className='font-bold xl:text-[40px] lg:text-4xl text-[32px] max-lg:pb-9 leading-[109%]  ff-integral text-white max-w-[551px]'>
                         STAY UPTO DATE ABOUT OUR LATEST OFFERS
@@ -79,13 +79,14 @@ const LatestOffer = () => {
                                     onChange={handleChange}
                                 />
                             </div>
+                            {message && <p className=" mt-4 text-red-700">{message}</p>}
                             <button
                                 type="submit"
                                 className='font-medium text-base md:py-[11px] py-[9px] cursor-pointer hover:bg-black hover:text-white border border-white transition-all duration-300 ease-linear md:px-[92px] px-[73px] mt-[14px] whitespace-nowrap bg-white rounded-full'
                             >
                                 Subscribe to Newsletter
                             </button>
-                            {message && <p className="text-white mt-4">{message}</p>}
+                         
                         </form>
                     </div>
                 </div>

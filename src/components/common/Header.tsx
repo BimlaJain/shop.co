@@ -45,7 +45,7 @@ const Header = () => {
         <div>
             {showBanner && (
                 <div className='bg-black'>
-                    <div className="text-white md:text-center py-2 flex container px-4 mx-auto">
+                    <div className="text-white md:text-center py-2 flex container 2xl:max-w-[1280px]  px-4 mx-auto">
                         <span className='md:text-sm text-xs text-right font-normal'>
                             Sign up and get 20% off on your first order.{' '}
                             <Link href="#" className="underline font-medium">
@@ -59,7 +59,7 @@ const Header = () => {
                 </div>
             )}
 
-            <header className="flex justify-between items-center p-4 container mx-auto">
+            <header className="flex justify-between items-center p-4 container 2xl:max-w-[1280px] mx-auto">
                 <div className="flex items-center gap-4">
                     <button className="lg:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
                         <Image src="/assets/images/svg/menuicon.svg" alt="menu" width={24} height={24} />

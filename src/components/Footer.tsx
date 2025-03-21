@@ -6,7 +6,7 @@ const Footer = () => {
     const year = new Date().getFullYear();
     return (
         <div className="bg-[#F0F0F0] lg:pt-[140px] pt-28 md:pb-[81px] pb-[77px]">
-            <div className="container max-w-[1240px] mx-auto px-4">
+            <div className="container 2xl:max-w-[1280px] max-w-[1240px] mx-auto px-4">
                 <div className="flex flex-wrap justify-between md:gap-10 gap-6 pb-[50px]">
                     <div className="max-w-[248px]">
                         <Link href="#">

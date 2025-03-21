@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`ff-satoshi antialiased scroll-smooth`}
+        className={`ff-satoshi antialiased scroll-smooth `}
       >
         {children}
       </body>
